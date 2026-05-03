@@ -1,0 +1,207 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;1,400&family=DM+Sans:wght@400;500&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0;}
+  .page{max-width:420px;margin:0 auto;padding:0 0 2.5rem;font-family:'DM Sans',sans-serif;}
+  .hero{background:#1a3a2a;border-radius:0 0 36px 36px;padding:2rem 1.5rem 1.5rem;position:relative;overflow:hidden;}
+  .hero-bg-circle1{position:absolute;top:-50px;right:-50px;width:180px;height:180px;background:#2d5c3e;border-radius:50%;opacity:0.45;}
+  .hero-bg-circle2{position:absolute;bottom:-40px;left:-30px;width:120px;height:120px;background:#2d5c3e;border-radius:50%;opacity:0.35;}
+  .byline-row{display:flex;align-items:center;gap:8px;margin-bottom:1rem;position:relative;z-index:1;}
+  .avatar{width:32px;height:32px;border-radius:50%;background:#3d6b4f;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:#9ccc96;flex-shrink:0;}
+  .byline-text{font-size:12px;color:#9ccc96;}
+  .byline-text strong{color:#c8e6c9;font-weight:500;}
+  .verified-badge{display:inline-block;width:14px;height:14px;background:#4caf50;border-radius:50%;margin-left:4px;vertical-align:middle;position:relative;}
+  .verified-badge::after{content:'';position:absolute;top:3px;left:3px;width:8px;height:5px;border-left:2px solid #1a3a2a;border-bottom:2px solid #1a3a2a;transform:rotate(-45deg);}
+  .hero-tag{display:inline-block;background:#2d5c3e;color:#9ccc96;font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px;margin-bottom:0.75rem;position:relative;z-index:1;letter-spacing:0.04em;}
+  .hero h1{font-family:'Fraunces',serif;font-size:27px;font-weight:700;color:#e8f5e9;line-height:1.2;position:relative;z-index:1;margin-bottom:0.5rem;}
+  .hero h1 em{font-style:italic;color:#9ccc96;}
+  .hero-hook{font-size:13px;color:rgba(200,230,201,0.8);position:relative;z-index:1;line-height:1.5;margin-bottom:1.25rem;}
+  .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#2d5c3e;border-radius:12px;overflow:hidden;position:relative;z-index:1;margin-bottom:1.25rem;}
+  .hero-stat{background:#1f4530;padding:0.7rem 0.5rem;text-align:center;}
+  .hero-stat-val{font-size:18px;font-weight:500;color:#e8f5e9;line-height:1;}
+  .hero-stat-label{font-size:10px;color:#6aab7e;margin-top:3px;letter-spacing:0.03em;}
+  .pull-quote{background:#2d5c3e;border-radius:10px;padding:0.8rem 1rem;margin-bottom:1.25rem;position:relative;z-index:1;}
+  .pull-quote p{font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:#c8e6c9;line-height:1.5;}
+  .pull-quote p strong{font-style:normal;color:#9ccc96;font-size:11px;display:block;margin-top:4px;font-family:'DM Sans',sans-serif;}
+  .hero-footer{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1;}
+  .hero-copyright{font-size:11px;color:rgba(156,204,150,0.5);}
+  .save-nudge{font-size:11px;color:#6aab7e;display:flex;align-items:center;gap:5px;}
+  .save-icon{width:14px;height:14px;border:1.5px solid #6aab7e;border-radius:2px;display:inline-block;position:relative;}
+  .save-icon::after{content:'';position:absolute;bottom:-4px;left:3px;width:6px;height:6px;border-left:1.5px solid #6aab7e;border-bottom:1.5px solid #6aab7e;transform:rotate(-45deg);}
+  .highlight-strip{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:1.25rem 1.25rem 0;}
+  .highlight-card{background:#eaf3de;border-radius:var(--border-radius-lg);padding:0.9rem 1rem;}
+  .highlight-card .hc-label{font-size:11px;color:#3b6d11;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;}
+  .highlight-card .hc-val{font-size:22px;font-weight:500;color:#27500a;line-height:1.1;}
+  .highlight-card .hc-sub{font-size:11px;color:#3b6d11;margin-top:2px;}
+  .section{padding:1.5rem 1.25rem 0;}
+  .section-title{font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:var(--color-text-primary);margin-bottom:1rem;}
+  .ing-list{display:flex;flex-direction:column;gap:8px;}
+  .ing{display:flex;align-items:center;gap:12px;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:0.85rem 1rem;}
+  .ing-dot{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+  .ing-dot.y{background:#faeeda;}
+  .ing-dot.b{background:#f5ede0;}
+  .ing-dot.o{background:#fdf4e3;}
+  .ing-dot.w{background:#eef4f8;}
+  .ing-dot.d{background:#f0eaff;}
+  .ing-dot.g{background:#fff8e1;}
+  .ing-dot.m{background:#e3f2fd;}
+  .ing-dot.e{background:#e8f5e9;}
+  .ing-body{flex:1;}
+  .ing-name{font-size:15px;font-weight:500;color:var(--color-text-primary);}
+  .ing-amt{font-size:12px;color:var(--color-text-secondary);margin-top:2px;}
+  .opt-tag{display:inline-block;font-size:10px;font-weight:500;background:#e8f5e9;color:#27500a;border-radius:4px;padding:1px 6px;margin-left:6px;vertical-align:middle;}
+  .science-cards{display:flex;flex-direction:column;gap:8px;}
+  .sci{display:flex;gap:12px;align-items:flex-start;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:0.9rem 1rem;}
+  .sci-badge{background:#1a3a2a;border-radius:8px;padding:6px 10px;flex-shrink:0;text-align:center;}
+  .sci-badge span{font-size:10px;font-weight:500;color:#9ccc96;display:block;letter-spacing:0.02em;}
+  .sci-title{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:2px;}
+  .sci-desc{font-size:12px;color:var(--color-text-secondary);line-height:1.5;}
+  .steps{display:flex;flex-direction:column;gap:10px;}
+  .step{display:flex;gap:12px;align-items:flex-start;}
+  .step-n{width:28px;height:28px;border-radius:50%;background:#1a3a2a;color:#9ccc96;font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+  .step-t{font-size:14px;color:var(--color-text-primary);line-height:1.6;padding-top:4px;}
+  .tip-box{background:#fffde7;border:0.5px solid #ffe082;border-radius:var(--border-radius-lg);padding:1rem 1.1rem;}
+  .tip-box p{font-size:13px;color:#5d4037;line-height:1.6;}
+  .tip-box strong{color:#4e342e;font-weight:500;}
+
+  .noblender-box{background:#fff8f0;border:0.5px solid #ffcc80;border-radius:var(--border-radius-lg);overflow:hidden;}
+  .noblender-header{background:#e65100;padding:0.7rem 1rem;display:flex;align-items:center;gap:8px;}
+  .noblender-header span{font-size:14px;font-weight:500;color:#fff8f0;}
+  .noblender-header .nb-icon{font-size:16px;}
+  .noblender-body{padding:1rem;}
+  .noblender-body p{font-size:13px;color:#5d4037;line-height:1.6;margin-bottom:0.75rem;}
+  .noblender-body p:last-child{margin-bottom:0;}
+  .noblender-steps{display:flex;flex-direction:column;gap:8px;margin:0.75rem 0;}
+  .nb-step{display:flex;gap:10px;align-items:flex-start;}
+  .nb-step-n{width:22px;height:22px;border-radius:50%;background:#e65100;color:#fff8f0;font-size:11px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+  .nb-step-t{font-size:13px;color:#5d4037;line-height:1.5;padding-top:3px;}
+  .nb-skip{background:#ffeedd;border-radius:8px;padding:0.7rem 0.9rem;margin-top:0.75rem;}
+  .nb-skip-title{font-size:12px;font-weight:500;color:#bf360c;margin-bottom:4px;}
+  .nb-skip-text{font-size:12px;color:#6d4c41;line-height:1.5;}
+
+  .share-strip{margin:1.5rem 1.25rem 0;background:#1a3a2a;border-radius:var(--border-radius-lg);padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;}
+  .share-text{font-size:13px;color:#c8e6c9;line-height:1.4;}
+  .share-text strong{display:block;font-size:15px;color:#e8f5e9;font-weight:500;margin-bottom:2px;}
+  .share-btn{background:#2d5c3e;border:none;border-radius:8px;color:#9ccc96;font-size:12px;font-weight:500;padding:8px 14px;cursor:pointer;white-space:nowrap;}
+</style>
+
+<div class="page">
+
+  <div class="hero">
+    <div class="hero-bg-circle1"></div>
+    <div class="hero-bg-circle2"></div>
+    <div class="byline-row">
+      <div class="avatar">GM</div>
+      <div class="byline-text">By <strong>GaryM</strong><span class="verified-badge"></span> &nbsp;· Tried &amp; tested</div>
+    </div>
+    <div class="hero-tag">High protein · Work-friendly · Blender optional</div>
+    <h1>The smoothie that works<br><em>as hard as you do</em></h1>
+    <p class="hero-hook">5 minutes. One blender — or not even that. Everything your muscles need, even on a busy workday.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-val">~30g</div><div class="hero-stat-label">Protein</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">~600</div><div class="hero-stat-label">Calories</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">5 min</div><div class="hero-stat-label">Prep time</div></div>
+    </div>
+    <div class="pull-quote">
+      <p>"Most muscle-gain shakes taste like chalk. This one actually tastes like a treat — and the science backs every ingredient."<strong>— GaryM</strong></p>
+    </div>
+    <div class="hero-footer">
+      <span class="hero-copyright">© 2026 GaryM. All rights reserved.</span>
+      <span class="save-nudge"><span class="save-icon"></span> Save this</span>
+    </div>
+  </div>
+
+  <div class="highlight-strip">
+    <div class="highlight-card">
+      <div class="hc-label">Serving size</div>
+      <div class="hc-val">600–700 ml</div>
+      <div class="hc-sub">1 large glass</div>
+    </div>
+    <div class="highlight-card">
+      <div class="hc-label">Key win</div>
+      <div class="hc-val">Slow + fast</div>
+      <div class="hc-sub">Energy that lasts all day</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">What goes in</div>
+    <div class="ing-list">
+      <div class="ing"><div class="ing-dot y">🍌</div><div class="ing-body"><div class="ing-name">Banana</div><div class="ing-amt">1 medium — not overripe</div></div></div>
+      <div class="ing"><div class="ing-dot b">🥜</div><div class="ing-body"><div class="ing-name">Natural peanut butter</div><div class="ing-amt">2 tablespoons</div></div></div>
+      <div class="ing"><div class="ing-dot o">🌾</div><div class="ing-body"><div class="ing-name">Rolled oats</div><div class="ing-amt">40g — about ½ cup</div></div></div>
+      <div class="ing"><div class="ing-dot w">🫙</div><div class="ing-body"><div class="ing-name">Greek yoghurt</div><div class="ing-amt">150g — plain, full-fat or 2%</div></div></div>
+      <div class="ing"><div class="ing-dot d">🍫</div><div class="ing-body"><div class="ing-name">Unsweetened cocoa powder</div><div class="ing-amt">1 teaspoon</div></div></div>
+      <div class="ing"><div class="ing-dot g">🍯</div><div class="ing-body"><div class="ing-name">Honey <span class="opt-tag">optional</span></div><div class="ing-amt">1 tsp — skip if banana is sweet</div></div></div>
+      <div class="ing"><div class="ing-dot m">🥛</div><div class="ing-body"><div class="ing-name">Milk</div><div class="ing-amt">250–300ml — dairy or almond</div></div></div>
+      <div class="ing"><div class="ing-dot e">✨</div><div class="ing-body"><div class="ing-name">Power boost <span class="opt-tag">optional</span></div><div class="ing-amt">1 tbsp chia seeds or 1 scoop protein powder</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">The science bit</div>
+    <div class="science-cards">
+      <div class="sci"><div class="sci-badge"><span>Banana</span></div><div class="sci-body"><div class="sci-title">Instant energy + muscle function</div><div class="sci-desc">Potassium keeps muscles firing. Fast carbs hit your bloodstream quick — perfect pre-workout.</div></div></div>
+      <div class="sci"><div class="sci-badge"><span>Oats</span></div><div class="sci-body"><div class="sci-title">Slow-release fuel</div><div class="sci-desc">Complex carbs that digest gradually — no energy crash, no mid-morning hunger.</div></div></div>
+      <div class="sci"><div class="sci-badge"><span>Yoghurt</span></div><div class="sci-body"><div class="sci-title">Muscle repair powerhouse</div><div class="sci-desc">High in protein + probiotics. Your muscles rebuild during rest — yoghurt gives them what they need.</div></div></div>
+      <div class="sci"><div class="sci-badge"><span>Cocoa</span></div><div class="sci-body"><div class="sci-title">Anti-inflammatory antioxidants</div><div class="sci-desc">Reduces exercise-related inflammation. Tastes amazing. That's a win-win.</div></div></div>
+      <div class="sci"><div class="sci-badge"><span>PB</span></div><div class="sci-body"><div class="sci-title">Calorie-dense healthy fats</div><div class="sci-desc">Peanut butter packs serious calories without sugar spikes — essential for muscle gain.</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">How to make it</div>
+    <div class="steps">
+      <div class="step"><div class="step-n">1</div><div class="step-t">Add your milk first — stops everything sticking to the blades.</div></div>
+      <div class="step"><div class="step-n">2</div><div class="step-t">Add oats, banana, peanut butter, yoghurt, and cocoa powder.</div></div>
+      <div class="step"><div class="step-n">3</div><div class="step-t">Throw in chia seeds or protein powder if you're using them.</div></div>
+      <div class="step"><div class="step-n">4</div><div class="step-t">Blend for 45–60 seconds until smooth.</div></div>
+      <div class="step"><div class="step-n">5</div><div class="step-t">Taste it — add honey only if you want it a touch sweeter.</div></div>
+      <div class="step"><div class="step-n">6</div><div class="step-t">Pour into a bottle and you're out the door.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">No blender? No problem</div>
+    <div class="noblender-box">
+      <div class="noblender-header">
+        <span class="nb-icon">🥄</span>
+        <span>Make it the night before — no equipment needed</span>
+      </div>
+      <div class="noblender-body">
+        <p>All you need is a jar, a fork, and 5 minutes the evening before. The oats soften overnight in the fridge and the banana breaks down naturally into the liquid. By morning it's thick, creamy, and ready to drink.</p>
+        <div class="noblender-steps">
+          <div class="nb-step"><div class="nb-step-n">1</div><div class="nb-step-t">Mash the banana well with a fork in a large jar or container.</div></div>
+          <div class="nb-step"><div class="nb-step-n">2</div><div class="nb-step-t">Add yoghurt, peanut butter, and cocoa powder. Stir until combined.</div></div>
+          <div class="nb-step"><div class="nb-step-n">3</div><div class="nb-step-t">Pour in the milk and stir again. Whisk the cocoa if it clumps.</div></div>
+          <div class="nb-step"><div class="nb-step-n">4</div><div class="nb-step-t">Stir in the oats and chia seeds if using. Add honey to taste.</div></div>
+          <div class="nb-step"><div class="nb-step-n">5</div><div class="nb-step-t">Seal and refrigerate overnight. Shake well before drinking.</div></div>
+        </div>
+        <div class="nb-skip">
+          <div class="nb-skip-title">Skip these without a blender</div>
+          <div class="nb-skip-text">Protein powder — clumps badly when stirred. Leave it out and rely on the yoghurt and peanut butter for protein instead.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">GaryM's tips</div>
+    <div class="tip-box">
+      <p>
+        <strong>Prep it the night before.</strong> Blend everything, seal it in a bottle, refrigerate. Shake in the morning. Fresh for up to 24 hours.<br><br>
+        <strong>Too thick?</strong> Splash in more milk and blend again. <strong>Not sweet enough?</strong> A teaspoon of honey fixes that fast.<br><br>
+        <strong>½ cup oats = 40g &nbsp;·&nbsp; ¼ cup oats = 20g</strong>
+      </p>
+    </div>
+  </div>
+
+  <div class="share-strip">
+    <div class="share-text">
+      <strong>Know someone who'd love this?</strong>
+      Send it their way.
+    </div>
+    <button class="share-btn" onclick="sendPrompt('Can you turn this into an Instagram caption for GaryM to share?')">Share it ↗</button>
+  </div>
+
+</div>
